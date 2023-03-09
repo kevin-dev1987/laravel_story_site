@@ -1,0 +1,94 @@
+.stories-wrapper{
+    margin: 1em;
+
+    .page-header{
+        border: 1px solid #ddd;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1em;
+
+        .title{
+            width: 50%;
+            display: flex;
+            align-items: center;
+
+            i{
+                padding: 0.5em;
+                color: #fff;
+                background-color: $link_blue;
+                border-right: 1px solid #000;
+            }
+
+            h2{
+                padding-left: 1em;
+                color: $link_blue;
+            }
+        }
+
+        .search-form{
+            
+            form{
+
+                input{
+                    border: 0;
+                    border-left: 1px solid #000;
+                    height: 35px;
+                    font-size: 1.1rem;
+                    padding: 0 0.5em;
+                }
+            }
+
+        }
+    }
+
+    .header-bar{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5em;
+
+        .sort-links{
+        
+            ul{
+                display: flex;
+                gap: 1em;
+
+                a{
+                    font-size: 0.9rem;
+                    position: relative;
+
+                    &::after{
+                        content: '|';
+                        display: block;
+                        position: absolute;
+                        right: -10px;
+                        bottom: 0;
+
+                    }
+
+                    &:last-of-type::after{
+                        content: '';
+                    }
+                }
+            }
+        }
+    }
+
+    .stories-grid{
+
+        .page-links{
+            display: flex;
+            justify-content: flex-end;
+            padding: 0.5em 0;
+        }
+
+        .grid-content{
+            display: grid;
+            place-items: center;
+            grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
+            row-gap: 1em;
+        }
+    }
+}

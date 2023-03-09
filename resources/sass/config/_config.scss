@@ -1,0 +1,70 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+// Site Colours
+$link-blue: steelblue;
+$link-blue_hover: #64b5f7;
+$h1_red: #ac1717;
+$main_bg: #f8f8f8;
+
+
+
+body, html{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: $main_bg;
+}
+
+h1, h2, h3, h4, h5, h6, i, a, p, span{
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+    color: $link-blue;
+    transition: all 150ms;
+
+    &:hover{
+        color: $link-blue_hover;
+    }
+}
+
+.container{
+    width: 70em;
+    max-width: 100%;
+    margin: 0 auto;
+    background-color: #fff;
+    display: flex;
+    gap: 2em;
+    justify-content: space-between;
+
+    main{
+        width: 100%;
+        
+       
+    }
+}
+
+.btn{
+    padding: 0.25em 0.5em;
+    font-size: 1.1rem;
+    color: #fff;
+    font-weight: bold;
+    border: 0;
+    cursor: pointer;
+}
+
+.btn-primary{
+    background-color: $link-blue;
+}
+
+.btn-success{
+    background-color: green;
+}
+
+.btn-danger{
+    background-color: red;
+}

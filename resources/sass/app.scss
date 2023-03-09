@@ -1,0 +1,20 @@
+@import '~bootstrap-icons/font/bootstrap-icons';
+
+@import 'config/config';
+
+//Componenets
+@import 'components/story-card';
+@import 'components/user-card';
+
+@import 'includes/header';
+@import 'includes/footer';
+@import 'includes/navigation';
+@import 'includes/site-notif-bar';
+
+@import 'stories/stories.scss';
+@import 'stories/categories';
+
+@import 'users/authors';
+
+
+@import 'main/index';

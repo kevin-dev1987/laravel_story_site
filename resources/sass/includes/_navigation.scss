@@ -1,0 +1,50 @@
+.navigation{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 70em;
+    max-width: 100%;
+    margin: 0 auto;
+    margin-bottom: 1em;
+    border: 1px solid $link-blue;
+
+    nav{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        
+        
+        
+        a{
+            padding: 0.25em 1em;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+            border-right: 1px solid $link-blue;
+            transition: 150ms;
+
+            &:hover{
+                background-color: $link-blue;
+                color: #fff;
+            }
+            
+        }
+    }
+    
+    .social-icons{
+        display: flex;
+        gap: 1em;
+        align-items: center;
+        
+        a{
+            font-size: 1.4rem;
+            font-weight: bold;
+            transition: 150ms;
+
+            &:hover{
+                color: $link-blue_hover;
+            }  
+        }
+    }
+}
