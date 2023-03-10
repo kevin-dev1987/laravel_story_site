@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FollowController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\StoryController;
@@ -28,3 +29,7 @@ Route::get('/categories', [StoryController::class, 'categories'])->name('categor
 
 //Users - non auth
 Route::get('/authors', [PageController::class, 'authors'])->name('authors');
+
+// Auth Users
+
+Route::post('/follow_user', [FollowController::class, 'followUser'])->name('follow_user');

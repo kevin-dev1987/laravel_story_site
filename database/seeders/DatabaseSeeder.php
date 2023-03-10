@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\Rating::factory(20)->create();
         \App\Models\Tag::factory(70)->create();
         \App\Models\Like::factory(200)->create();
+        \App\Models\Follow::factory(200)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',

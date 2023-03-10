@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Story;
+use App\Models\Follow;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
@@ -27,7 +28,9 @@ class StoryController extends Controller
 
     public function getStory(Story $story){
         $story = $story->load(['rating', 'author', 'tags'])->loadCount('rating')->loadAvg('rating', 'rating');
+        $user_follow_check = Follow::where('follow_from', 777)->pluck('follow_to')->toArray();
 
-        return view('stories.view_story', ['story' => $story]);
+
+        return view('stories.view_story', ['story' => $story, 'user_follow_check' => $user_follow_check]);
     }
 }

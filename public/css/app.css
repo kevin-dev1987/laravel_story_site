@@ -8061,6 +8061,23 @@ a:hover {
   background-color: red;
 }
 
+.btn-interact {
+  color: #666;
+  background-color: #f8f8f8;
+  display: flex;
+  flex-direction: row;
+  gap: 0.2em;
+  align-items: center;
+  transition: all 150ms;
+  border-radius: 5px;
+}
+.btn-interact:hover {
+  background-color: #eeeeee;
+}
+.btn-interact i {
+  font-size: 1.2rem;
+}
+
 .story-card {
   border: 1px solid #ddd;
   border-radius: 10px;
@@ -8483,13 +8500,13 @@ footer {
   justify-content: space-between;
   align-items: center;
   padding: 0 1em;
+  margin-bottom: 1.5em;
 }
 .view-story-wrapper .interact-wrapper .author-interact {
   display: flex;
   flex-direction: row;
   gap: 1em;
-  align-items: center;
-  border: 1px solid #000;
+  align-items: flex-end;
   padding: 0.5em;
 }
 .view-story-wrapper .interact-wrapper .author-interact .info {
@@ -8513,9 +8530,67 @@ footer {
   -o-object-position: center top;
      object-position: center top;
 }
+.view-story-wrapper .interact-wrapper .author-interact .info .username {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
 .view-story-wrapper .interact-wrapper .author-interact .info a {
   font-size: 1.2rem;
   font-weight: bold;
+}
+.view-story-wrapper .interact-wrapper .author-interact .interaction {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+}
+.view-story-wrapper .interact-wrapper .author-interact .interaction .story-author-follow-btn:hover {
+  color: green;
+}
+.view-story-wrapper .interact-wrapper .author-interact .interaction .story-author-follow-btn:hover i {
+  color: green;
+}
+.view-story-wrapper .interact-wrapper .author-interact .interaction .story-author-follow-btn:disabled {
+  background-color: rgba(0, 255, 0, 0.4);
+  color: green;
+}
+.view-story-wrapper .interact-wrapper .author-interact .interaction .story-author-follow-btn:disabled i {
+  color: green;
+}
+.view-story-wrapper .interact-wrapper .author-interact .interaction .story-author-kudos-btn:hover {
+  color: red;
+}
+.view-story-wrapper .interact-wrapper .author-interact .interaction .story-author-kudos-btn:hover i {
+  color: red;
+}
+.view-story-wrapper .interact-wrapper .story-interact {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  align-items: center;
+}
+.view-story-wrapper .interact-wrapper .story-interact .story-like-btn:hover {
+  color: navy;
+}
+.view-story-wrapper .interact-wrapper .story-interact .story-like-btn:hover i {
+  color: navy;
+}
+.view-story-wrapper .interact-wrapper .story-interact .story-favourite-btn:hover {
+  color: goldenrod;
+}
+.view-story-wrapper .interact-wrapper .story-interact .story-favourite-btn:hover i {
+  color: goldenrod;
+}
+.view-story-wrapper .content-wrapper {
+  width: 90%;
+  margin: 0 auto;
+  padding: 1em;
+  border-radius: 10px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+}
+.view-story-wrapper .content-wrapper .content-body {
+  font-size: 18px;
+  line-height: 1.4em;
 }
 
 .authors-wrapper {

@@ -39,13 +39,13 @@
         justify-content: space-between;
         align-items: center;
         padding: 0 1em;
+        margin-bottom: 1.5em;
 
         .author-interact{
             display: flex;
             flex-direction: row;
             gap: 1em;
-            align-items: center;
-            border: 1px solid #000;
+            align-items: flex-end;
             padding: 0.5em;
 
             .info{
@@ -74,11 +74,99 @@
                     }
                 }
 
+                .username{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0;
+                }
+
                 a{
                     font-size: 1.2rem;
                     font-weight: bold;
                 }
             }
+
+            .interaction{
+                display: flex;
+                flex-direction: row;
+                gap: 1em;
+
+                .story-author-follow-btn{
+
+                    &:hover{
+                        color: green;
+
+                        i{
+                            color: green;
+                        }
+                    }
+                    
+                }
+
+                .story-author-follow-btn:disabled{
+                    background-color: rgba(0, 255, 0, 0.4);
+                    color: green;
+
+                        i{
+                            color: green;
+                        }
+                }
+
+                .story-author-kudos-btn{
+
+                    &:hover{
+                        color: red;
+
+                        i{
+                            color: red;
+                        }
+                    }
+                }
+            }
+        }
+
+        .story-interact{
+            display: flex;
+            flex-direction: row;
+            gap: 1em;
+            align-items: center;
+
+            .story-like-btn{
+
+                &:hover{
+                    color: navy;
+
+                    i{
+                        color: navy;
+                    }
+                }
+                
+            }
+
+            .story-favourite-btn{
+
+                &:hover{
+                    color: goldenrod;
+
+                    i{
+                        color: goldenrod;
+                    }
+                }
+                
+            }
+        }
+    }
+
+    .content-wrapper{
+        width: 90%;
+        margin: 0 auto;
+        padding: 1em;
+        border-radius: 10px;
+        box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+
+        .content-body{
+            font-size: 18px;
+            line-height: 1.4em;
         }
     }
 }
