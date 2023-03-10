@@ -24,7 +24,7 @@
                 </div>
             </div>
         </div>
-        <div class="view-story-interact">
+        <div class="interact-wrapper">
             <div class="author-interact">
                 <div class="info">
                     <div class="image">
@@ -37,9 +37,25 @@
                 <div class="interaction">
                     <button class="btn btn-success" data-follow_id="{{$story->author->id}}">
                         <i class="bi bi-plus"></i>
-                        Friend
+                       
+                    </button>
+                    <button class="btn btn-primary" data-like_id="{{$story->author->id}}">
+                        <i class="bi bi-heart"></i>
+                       
                     </button>
                 </div>
+            </div>
+            <div class="story-interact">
+                <button class="btn btn-primary">
+                    <i class="bi bi-hand-thumbs-up"></i>
+                    Like
+                </button>
+                <button class="btn btn-danger">
+                    <i class="bi bi-flag"></i>
+                </button>
+                <button class="btn btn-success">
+                    <i class="bi bi-star"></i>
+                </button>
             </div>
         </div>
     </div>

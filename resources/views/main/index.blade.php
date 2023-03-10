@@ -2,9 +2,7 @@
 
 @section('content')
     @include('includes.hero')
-    @php
-        // dd($stories);
-    @endphp
+
     <div class="index-wrapper">
         <div class="category-box-flex">
             <div class="box">
