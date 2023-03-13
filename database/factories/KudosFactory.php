@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Like>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
  */
-class LikeFactory extends Factory
+class KudosFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,8 +17,8 @@ class LikeFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => $this->faker->numberBetween(1, 20),
-            'story_id' => $this->faker->numberBetween(1, 10),
+            'kudos_from' => $this->faker->numberBetween(1, 20),
+            'kudos_to' => $this->faker->numberBetween(1, 20),
         ];
     }
 }

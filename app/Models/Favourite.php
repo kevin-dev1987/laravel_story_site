@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Like extends Model
+class Favourite extends Model
 {
     use HasFactory;
 
@@ -14,4 +14,3 @@ class Like extends Model
         'story_id'
     ];
 }
-

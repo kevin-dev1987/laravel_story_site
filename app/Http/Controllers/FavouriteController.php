@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Like;
+use App\Models\Favourite;
 use App\Models\Story;
 use Illuminate\Http\Request;
 
-class LikesController extends Controller
+class FavouriteController extends Controller
 {
-    public function likeStory(Request $request){
+    public function favouriteStory(Request $request){
         $response = [];
         // Check the user is logged in
         if(auth()->user()){
@@ -24,11 +24,11 @@ class LikesController extends Controller
                 echo json_encode($response);
                 exit();
             } else{
-                Like::create([
+                Favourite::create([
                     'user_id' => 777,
                     'story_id' => $story_id,
                 ]);
-                $response['like'] = 'liked';
+                $response['favourite'] = 'favourited';
                 echo json_encode($response);
                 exit();
 

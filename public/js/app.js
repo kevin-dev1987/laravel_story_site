@@ -10,60 +10,19 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+/* harmony import */ var _menus__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./menus */ "./resources/js/menus.js");
+/* harmony import */ var _menus__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_menus__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _configs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./configs */ "./resources/js/configs.js");
+/* harmony import */ var _configs__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_configs__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _userInteraction__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./userInteraction */ "./resources/js/userInteraction.js");
+/* harmony import */ var _userInteraction__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_userInteraction__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _storyInteraction__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./storyInteraction */ "./resources/js/storyInteraction.js");
+/* harmony import */ var _storyInteraction__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_storyInteraction__WEBPACK_IMPORTED_MODULE_4__);
 
-$(document).ready(function () {
-  $.ajaxSetup({
-    headers: {
-      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
-  });
-  $(document).on('click', '.expand-genre-menu', function () {
-    $('.menu').animate({
-      height: '110px'
-    }, 'medium');
-    $('.bi-caret-down-fill').hide();
-    $('.bi-caret-left-fill').show();
-    $('#expand-genre-menu').attr('class', 'collapse-genre-menu');
-  });
-  $(document).on('click', '.collapse-genre-menu', function () {
-    $('.menu').animate({
-      height: '30px'
-    }, 'medium');
-    $('.bi-caret-down-fill').show();
-    $('.bi-caret-left-fill').hide();
-    $('#expand-genre-menu').attr('class', 'expand-genre-menu');
-  });
 
-  //Click the Follow author button on story view
-  $(document).on('click', '.story-author-follow-btn', function (e) {
-    e.preventDefault();
-    var icon = $(this).find('.bi-plus');
-    var id_to_follow = $(this).data('follow_id');
-    console.log(id_to_follow);
-    var followData = new FormData();
-    followData.append('follow_id', id_to_follow);
-    $.ajax({
-      url: '/follow_user',
-      method: 'POST',
-      dataType: 'json',
-      processData: false,
-      contentType: false,
-      cache: false,
-      data: followData,
-      success: function success(response) {
-        console.log(response);
-        if (response.user_follow == 'success') {
-          icon.css('color', 'green');
-          $(this).css('background-color', 'rgba(0, 255, 0, 0.4)');
-          $(this).css('color', 'green');
-        }
-      },
-      error: function error(xhr, status, _error) {
-        console.log(_error);
-      }
-    });
-  });
-});
+
+
+
 
 /***/ }),
 
@@ -107,6 +66,202 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     forceTLS: (import.meta.env.VITE_PUSHER_SCHEME ?? 'https') === 'https',
 //     enabledTransports: ['ws', 'wss'],
 // });
+
+/***/ }),
+
+/***/ "./resources/js/configs.js":
+/*!*********************************!*\
+  !*** ./resources/js/configs.js ***!
+  \*********************************/
+/***/ (() => {
+
+$.ajaxSetup({
+  headers: {
+    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/menus.js":
+/*!*******************************!*\
+  !*** ./resources/js/menus.js ***!
+  \*******************************/
+/***/ (() => {
+
+//index tag menu
+$(document).on('click', '.expand-genre-menu', function () {
+  $('.menu').animate({
+    height: '110px'
+  }, 'medium');
+  $('.bi-caret-down-fill').hide();
+  $('.bi-caret-left-fill').show();
+  $('#expand-genre-menu').attr('class', 'collapse-genre-menu');
+});
+$(document).on('click', '.collapse-genre-menu', function () {
+  $('.menu').animate({
+    height: '30px'
+  }, 'medium');
+  $('.bi-caret-down-fill').show();
+  $('.bi-caret-left-fill').hide();
+  $('#expand-genre-menu').attr('class', 'expand-genre-menu');
+});
+
+/***/ }),
+
+/***/ "./resources/js/storyInteraction.js":
+/*!******************************************!*\
+  !*** ./resources/js/storyInteraction.js ***!
+  \******************************************/
+/***/ (() => {
+
+// Give the story a like
+$(document).on('click', '.story-like-btn', function (e) {
+  e.preventDefault();
+  var icon = $(this).find('.bi-hand-thumbs-up');
+  var story_id = $(this).data('story_id');
+  var likeData = new FormData();
+  likeData.append('story_id', story_id);
+  $.ajax({
+    url: '/like_story',
+    method: 'POST',
+    dataType: 'json',
+    processData: false,
+    contentType: false,
+    cache: false,
+    data: likeData,
+    success: function success(response) {
+      if (response.like == 'liked') {
+        icon.attr('class', 'bi bi-hand-thumbs-up-fill');
+        $('.story-like-btn').prop('disabled', true);
+      }
+    },
+    error: function error(xhr, status, _error) {
+      console.log(_error);
+    }
+  });
+});
+
+//Favourite the story
+$(document).on('click', '.story-favourite-btn', function (e) {
+  e.preventDefault();
+  var icon = $(this).find('.bi-star');
+  var story_id = $(this).data('story_id');
+  var favData = new FormData();
+  favData.append('story_id', story_id);
+  $.ajax({
+    url: '/favourite_story',
+    method: 'POST',
+    dataType: 'json',
+    processData: false,
+    contentType: false,
+    cache: false,
+    data: favData,
+    success: function success(response) {
+      if (response.favourite == 'favourited') {
+        icon.attr('class', 'bi bi-star-fill');
+        $('.story-favourite-btn').prop('disabled', true);
+      }
+    },
+    error: function error(xhr, status, _error2) {
+      console.log(_error2);
+    }
+  });
+});
+
+//Report a story - close/open modal
+$('.cancel-story-report').on('click', function (e) {
+  e.preventDefault();
+  $('.report-story-modal').hide();
+});
+$(document).on('click', '.report-story-modal-open', function (e) {
+  e.preventDefault();
+  var story_id = $(this).data('story_id');
+  $('.report-story-modal').show();
+  $('#story-report-id').val(story_id);
+});
+var story_report_form = $('#story_report_form')[0];
+$(document).on('click', '.submit-story-report', function (e) {
+  e.preventDefault();
+  var storyReportData = new FormData(story_report_form);
+  $.ajax({
+    url: '/report_story',
+    method: 'POST',
+    dataType: 'json',
+    contentType: false,
+    processData: false,
+    cache: false,
+    data: storyReportData,
+    success: function success(response) {},
+    error: function error(xhr, status, _error3) {
+      console.log(_error3);
+    }
+  });
+});
+
+/***/ }),
+
+/***/ "./resources/js/userInteraction.js":
+/*!*****************************************!*\
+  !*** ./resources/js/userInteraction.js ***!
+  \*****************************************/
+/***/ (() => {
+
+//Click the Follow author button on story view
+$(document).on('click', '.story-author-follow-btn', function (e) {
+  e.preventDefault();
+  var icon = $(this).find('.bi-plus');
+  var id_to_follow = $(this).data('author_id');
+  var followData = new FormData();
+  followData.append('follow_id', id_to_follow);
+  $.ajax({
+    url: '/follow_user',
+    method: 'POST',
+    dataType: 'json',
+    processData: false,
+    contentType: false,
+    cache: false,
+    data: followData,
+    success: function success(response) {
+      console.log(response);
+      if (response.user_follow == 'success') {
+        icon.css('color', 'green');
+        $('.story-author-follow-btn').prop('disabled', true);
+      }
+    },
+    error: function error(xhr, status, _error) {
+      console.log(_error);
+    }
+  });
+});
+
+// Click the Kudos button on story view to give the author Kudos
+$(document).on('click', '.story-author-kudos-btn', function (e) {
+  e.preventDefault();
+  var icon = $(this).find('.bi-heart');
+  var id_to_kudos = $(this).data('author_id');
+  var kudosData = new FormData();
+  kudosData.append('kudos_id', id_to_kudos);
+  $.ajax({
+    url: '/kudos_user',
+    method: 'POST',
+    dataType: 'json',
+    processData: false,
+    contentType: false,
+    cache: false,
+    data: kudosData,
+    success: function success(response) {
+      console.log(response);
+      if (response.user_kudos == 'success') {
+        icon.attr('class', 'bi bi-heart-fill');
+        $('.story-author-kudos-btn').prop('disabled', true);
+      }
+    },
+    error: function error(xhr, status, _error2) {
+      console.log(_error2);
+    }
+  });
+});
 
 /***/ }),
 
@@ -6325,6 +6480,18 @@ const toJSONObject = (obj) => {
 /******/ 				}
 /******/ 			}
 /******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
 /******/ 		};
 /******/ 	})();
 /******/ 	

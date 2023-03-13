@@ -1,9 +1,12 @@
 <?php
 
-use App\Http\Controllers\FollowController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\KudosController;
+use App\Http\Controllers\LikesController;
 use App\Http\Controllers\StoryController;
+use App\Http\Controllers\FollowController;
+use App\Http\Controllers\FavouriteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +33,15 @@ Route::get('/categories', [StoryController::class, 'categories'])->name('categor
 //Users - non auth
 Route::get('/authors', [PageController::class, 'authors'])->name('authors');
 
-// Auth Users
+//User Interaction
 
 Route::post('/follow_user', [FollowController::class, 'followUser'])->name('follow_user');
+
+Route::post('/kudos_user', [KudosController::class, 'kudosUser'])->name('kudos_user');
+
+
+//Story Interaction
+
+Route::post('/like_story', [LikesController::class, 'likeStory'])->name('like_story');
+
+Route::post('/favourite_story', [FavouriteController::class, 'favouriteStory'])->name('favourite_story');

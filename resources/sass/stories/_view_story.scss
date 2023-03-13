@@ -122,6 +122,16 @@
                         }
                     }
                 }
+
+                .story-author-kudos-btn:disabled{
+
+                    background-color: rgba(255, 0, 0, 0.4);
+                    color: red;
+
+                        i{
+                            color: red;
+                        }
+                }
             }
         }
 
@@ -143,6 +153,15 @@
                 
             }
 
+            .story-like-btn:disabled{
+                color: navy;
+                background-color: rgba(0, 0, 128, 0.4);
+
+                i{
+                    color: navy;
+                } 
+            }
+
             .story-favourite-btn{
 
                 &:hover{
@@ -153,6 +172,62 @@
                     }
                 }
                 
+            }
+
+            .story-favourite-btn:disabled{
+                color: rgb(218, 165, 32);
+                background-color: rgba(218, 165, 32, 0.4);
+
+                i{
+                    color: goldenrod;
+                }
+                
+                
+            }
+        }
+    }
+
+    .report-story-modal{
+        background-color: rgba(0, 0, 0, 0.3);
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        left: 0;
+        top: 0;
+        display: none;
+
+        .modal-content{
+            width: 30em;
+            max-width: 100%;
+            height: fit-content;
+            margin: auto;
+            margin-top: 10em;
+            padding: 1em;
+            background-color: #f1f1f1;
+            border-radius: 10px;
+
+            p{
+                font-size: 1.3rem;
+                color: #000;
+                margin-bottom: 1em;
+            }
+
+            .report-modal-errors{
+                margin-bottom: 0.5em;
+                width: fit-content;
+                background-color: rgba(255, 0, 0, 0.4);
+                color: #fff;
+                padding: 0.25em;
+                display: none;
+            }
+
+            ul{
+                display: flex;
+                flex-direction: column;
+                gap: 0.5em;
+                list-style: none;
+                font-size: 1.1rem;
+                margin-bottom: 1em;
             }
         }
     }

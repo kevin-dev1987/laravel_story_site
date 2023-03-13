@@ -5,13 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Like extends Model
+class Kudos extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'user_id',
-        'story_id'
+        'kudos_from',
+        'kudos_to'
     ];
 }
-

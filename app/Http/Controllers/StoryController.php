@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Like;
+use App\Models\Kudos;
 use App\Models\Story;
 use App\Models\Follow;
 use App\Models\Category;
+use App\Models\Favourite;
 use Illuminate\Http\Request;
 
 class StoryController extends Controller
@@ -27,10 +30,18 @@ class StoryController extends Controller
     }
 
     public function getStory(Story $story){
-        $story = $story->load(['rating', 'author', 'tags'])->loadCount('rating')->loadAvg('rating', 'rating');
+        $story = $story->load(['rating', 'author', 'tags'])->loadCount(['rating', 'likes'])->loadAvg('rating', 'rating');
         $user_follow_check = Follow::where('follow_from', 777)->pluck('follow_to')->toArray();
+        $user_kudos_check = Kudos::where('kudos_from', 777)->pluck('kudos_to')->toArray();
+        $story_like_check = Like::where('user_id', 777)->pluck('story_id')->toArray();
+        $story_fav_check = Favourite::where('user_id', 777)->pluck('story_id')->toArray();
 
-
-        return view('stories.view_story', ['story' => $story, 'user_follow_check' => $user_follow_check]);
+        return view('stories.view_story', [
+            'story' => $story, 
+            'user_follow_check' => $user_follow_check, 
+            'user_kudos_check' => $user_kudos_check, 
+            'story_like_check' => $story_like_check,
+            'story_fav_check' => $story_fav_check,
+        ]);
     }
 }

@@ -18,6 +18,10 @@ class Story extends Model
         return $this->hasMany(Rating::class, 'story_id', 'id');
     }
 
+    public function likes(){
+        return $this->hasMany(Like::class, 'story_id', 'id');
+    }
+
     public function tags(){
         return $this->hasMany(Tag::class, 'story_id', 'id');
     }

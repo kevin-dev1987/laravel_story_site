@@ -51,6 +51,10 @@ class User extends Authenticatable
         return $this->hasMany(Like::class, 'like_to', 'id');
     }
 
+    public function followers(){
+        return $this->hasMany(Follow::class, 'follow_to', 'id');
+    }
+
     public function scopeFilter($query, array $filter){
         if($filter['user_search'] ?? false){
             $query->where('username', 'LIKE', "%{$filter['user_search']}%");
