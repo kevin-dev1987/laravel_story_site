@@ -30,6 +30,10 @@ class Story extends Model
         return $this->hasOne(Category::class, 'category_name', 'category');
     }
 
+    public function comments(){
+        return $this->hasMany(Comment::class, 'story_id', 'id');
+    }
+
 
 
 

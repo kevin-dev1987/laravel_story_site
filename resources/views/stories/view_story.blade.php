@@ -150,8 +150,114 @@
                 </div>
                 <div class="comment-list-main">
                     <div class="comment">
-                        <div class="user-image">
-                            <img src="" alt="">
+                        <div class="comment-header">
+                            <div class="user-info">
+                                <a href="#">
+                                    <img src="https://picsum.photos/100" alt="">
+                                </a>
+                                <a href="#">
+                                    UsernameHere
+                                </a>
+                            </div>
+                            <div class="comment-date">
+                                Posted: 26/03/2500
+                            </div>
+                        </div>
+                        <div class="comment-body">
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa molestias quo ipsum error corporis? Cum, minima aut iusto ratione ipsa itaque natus odit sint ducimus vero id ipsum reprehenderit. Eius minima, similique commodi quod quisquam natus libero? Voluptatem, distinctio molestiae?
+                        </div>
+                        <div class="comment-footer">
+                            <div class="footer-item">
+                                <i class="bi bi-hand-thumbs-up-fill" title="Like Comment"></i>
+                                <span>0</span>
+                            </div>
+                            <div class="footer-item">
+                                <i class="bi bi-flag-fill" title="Report Comment"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="comment">
+                        <div class="comment-header">
+                            <div class="user-info">
+                                <a href="#">
+                                    <img src="https://picsum.photos/100" alt="">
+                                </a>
+                                <a href="#">
+                                    UsernameHere
+                                </a>
+                            </div>
+                            <div class="comment-date">
+                                Posted: 26/03/2500
+                            </div>
+                        </div>
+                        <div class="comment-body">
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa molestias quo ipsum error corporis? Cum, minima aut iusto ratione ipsa itaque natus odit sint ducimus vero id ipsum reprehenderit. Eius minima, similique commodi quod quisquam natus libero? Voluptatem, distinctio molestiae?
+                        </div>
+                        <div class="comment-footer">
+                            <div class="footer-item">
+                                <i class="bi bi-hand-thumbs-up-fill" title="Like Comment"></i>
+                                <span>0</span>
+                            </div>
+                            <div class="footer-item">
+                                <i class="bi bi-flag-fill" title="Report Comment"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="comment">
+                        <div class="comment-header">
+                            <div class="user-info">
+                                <a href="#">
+                                    <img src="https://picsum.photos/100" alt="">
+                                </a>
+                                <a href="#">
+                                    UsernameHere
+                                </a>
+                            </div>
+                            <div class="comment-date">
+                                Posted: 26/03/2500
+                            </div>
+                        </div>
+                        <div class="comment-body">
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa molestias quo ipsum error corporis? Cum, minima aut iusto ratione ipsa itaque natus odit sint ducimus vero id ipsum reprehenderit. Eius minima, similique commodi quod quisquam natus libero? Voluptatem, distinctio molestiae?
+                        </div>
+                        <div class="comment-footer">
+                            <div class="footer-item">
+                                <i class="bi bi-hand-thumbs-up-fill" title="Like Comment"></i>
+                                <span>0</span>
+                            </div>
+                            <div class="footer-item">
+                                <i class="bi bi-flag-fill" title="Report Comment"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="comment">
+                        <div class="comment-header">
+                            <div class="user-info">
+                                <a href="#">
+                                    <img src="https://picsum.photos/100" alt="">
+                                </a>
+                                <a href="#">
+                                    UsernameHere
+                                </a>
+                            </div>
+                            <div class="comment-date">
+                                Posted: 26/03/2500
+                            </div>
+                        </div>
+                        <div class="comment-body">
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa molestias quo ipsum error corporis? Cum, minima aut iusto ratione ipsa itaque natus odit sint ducimus vero id ipsum reprehenderit. Eius minima, similique commodi quod quisquam natus libero? Voluptatem, distinctio molestiae?
+                        </div>
+                        <div class="comment-footer">
+                            <div class="footer-item">
+                                <i class="bi bi-hand-thumbs-up-fill" title="Like Comment"></i>
+                                <span>0</span>
+                            </div>
+                            <div class="footer-item">
+                                <i class="bi bi-flag-fill" title="Report Comment"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
