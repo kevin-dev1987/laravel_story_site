@@ -18,6 +18,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _userInteraction__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_userInteraction__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _storyInteraction__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./storyInteraction */ "./resources/js/storyInteraction.js");
 /* harmony import */ var _storyInteraction__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_storyInteraction__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _story_comments__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./story_comments */ "./resources/js/story_comments.js");
+/* harmony import */ var _story_comments__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_story_comments__WEBPACK_IMPORTED_MODULE_5__);
+
 
 
 
@@ -80,6 +83,7 @@ $.ajaxSetup({
     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
   }
 });
+$('#comments-textarea').val('');
 
 /***/ }),
 
@@ -184,6 +188,7 @@ var story_report_form = $('#story_report_form')[0];
 $(document).on('click', '.submit-story-report', function (e) {
   e.preventDefault();
   var storyReportData = new FormData(story_report_form);
+  console.log(storyReportData);
   $.ajax({
     url: '/report_story',
     method: 'POST',
@@ -192,11 +197,40 @@ $(document).on('click', '.submit-story-report', function (e) {
     processData: false,
     cache: false,
     data: storyReportData,
-    success: function success(response) {},
+    success: function success(response) {
+      if (response.required == 'empty') {
+        $('.report-modal-errors').show();
+        $('.report-modal-errors').html('Please select a reason');
+      }
+      if (response.auth == 'not_auth') {
+        $('.report-modal-errors').show();
+        $('.report-modal-errors').html('You must be logged in to do this');
+      }
+      if (response.report == 'story_reported') {
+        $('.report-story-modal .modal-content form').hide();
+        $('.report-story-modal .modal-content > p').html('Thank you for your report!');
+        setTimeout(function () {
+          $('.report-story-modal').hide();
+        }, 2000);
+      }
+    },
     error: function error(xhr, status, _error3) {
       console.log(_error3);
     }
   });
+});
+
+/***/ }),
+
+/***/ "./resources/js/story_comments.js":
+/*!****************************************!*\
+  !*** ./resources/js/story_comments.js ***!
+  \****************************************/
+/***/ (() => {
+
+$('#comments-textarea').on('keyup', function () {
+  var comment_input_count = $(this).val().length;
+  $('.character-count').html(comment_input_count + '/300 characters.');
 });
 
 /***/ }),

@@ -100,16 +100,16 @@
                 <form id="story_report_form">
                     <ul>
                         <li>
-                            <input type="radio" name="reason" id="report-radio" value="Reason 1">
-                            <label for="report-radio">Reason 1</label>
+                            <input type="radio" name="reason" id="report-radio-1" value="Reason 1">
+                            <label for="report-radio-1">Reason 1</label>
                         </li>
                         <li>
-                            <input type="radio" name="reason" id="report-radio" value="Reason 2">
-                            <label for="report-radio">Reason 2</label>
+                            <input type="radio" name="reason" id="report-radio-2" value="Reason 2">
+                            <label for="report-radio-2">Reason 2</label>
                         </li>
                         <li>
-                            <input type="radio" name="reason" id="report-radio" value="Reason 3">
-                            <label for="report-radio">Reason 3</label>
+                            <input type="radio" name="reason" id="report-radio-3" value="Reason 3">
+                            <label for="report-radio-3">Reason 3</label>
                         </li>
                     </ul>
                     <input type="hidden" name="story_id" value="" id="story-report-id">
@@ -121,6 +121,40 @@
         <div class="content-wrapper">
             <div class="content-body">
                 {{ $story->body }}
+            </div>
+        </div>
+        <div class="comments-wrapper">
+            <h3>Comments</h3>
+            <div class="comment-submit-block">
+                <div class="input">
+                    <textarea name="comment" id="comments-textarea"></textarea>
+                    <div class="input-lower">
+                        <div class="character-count">
+                            <span>0</span>/300 characters.
+                        </div>
+                        <div class="add-to">
+                            <div class="emojis">
+                                <i class="bi bi-emoji-smile"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="submit">
+                    <button class="btn-large btn-primary">Submit</button>
+                </div>
+            </div>
+            <div class="comment-list-block">
+                <div class="stat-bar">
+                    <span><i class="bi bi-chat-fill"></i> 00</span>
+                    <span>Posting as Username</span>
+                </div>
+                <div class="comment-list-main">
+                    <div class="comment">
+                        <div class="user-image">
+                            <img src="" alt="">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

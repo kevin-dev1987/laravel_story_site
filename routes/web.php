@@ -6,6 +6,7 @@ use App\Http\Controllers\KudosController;
 use App\Http\Controllers\LikesController;
 use App\Http\Controllers\StoryController;
 use App\Http\Controllers\FollowController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\FavouriteController;
 
 /*
@@ -45,3 +46,6 @@ Route::post('/kudos_user', [KudosController::class, 'kudosUser'])->name('kudos_u
 Route::post('/like_story', [LikesController::class, 'likeStory'])->name('like_story');
 
 Route::post('/favourite_story', [FavouriteController::class, 'favouriteStory'])->name('favourite_story');
+
+//Reporting
+Route::post('/report_story', [ReportController::class, 'reportStory'])->name('report_story');

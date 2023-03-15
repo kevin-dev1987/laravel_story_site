@@ -8049,6 +8049,16 @@ a:hover {
   cursor: pointer;
 }
 
+.btn-large {
+  padding: 0.5em 1.5em;
+  font-size: 1.2rem;
+  color: #fff;
+  font-weight: bold;
+  border: 0;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
 .btn-primary {
   background-color: steelblue;
 }
@@ -8647,6 +8657,7 @@ footer {
 .view-story-wrapper .content-wrapper {
   width: 90%;
   margin: 0 auto;
+  margin-bottom: 3em;
   padding: 1em;
   border-radius: 10px;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
@@ -8654,6 +8665,84 @@ footer {
 .view-story-wrapper .content-wrapper .content-body {
   font-size: 18px;
   line-height: 1.4em;
+}
+.view-story-wrapper .comments-wrapper {
+  width: 70%;
+  margin: auto;
+  box-shadow: 3px 0 3px rgba(0, 0, 0, 0.3), -3px 0 3px rgba(0, 0, 0, 0.3);
+}
+.view-story-wrapper .comments-wrapper h3 {
+  padding-top: 2em;
+  color: #666;
+  margin: 0 0 3em 2em;
+}
+.view-story-wrapper .comments-wrapper .comment-submit-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  align-items: center;
+  width: 80%;
+  margin: auto;
+  margin-bottom: 3em;
+}
+.view-story-wrapper .comments-wrapper .comment-submit-block .input {
+  border: 2px solid #f1f1f1;
+  border-radius: 10px;
+  width: 100%;
+  padding: 0.5em;
+}
+.view-story-wrapper .comments-wrapper .comment-submit-block .input::before {
+  content: "Your Comment";
+  display: inline-block;
+  color: #666;
+  font-size: 0.9rem;
+}
+.view-story-wrapper .comments-wrapper .comment-submit-block .input textarea {
+  width: 100%;
+  height: 50px;
+  position: relative;
+  resize: none;
+  border: 0;
+  font-size: 1.1rem;
+}
+.view-story-wrapper .comments-wrapper .comment-submit-block .input textarea:focus {
+  border: 0;
+  outline: 0;
+}
+.view-story-wrapper .comments-wrapper .comment-submit-block .input .input-lower {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.5em;
+  color: #666;
+  padding: 0.25em 0;
+}
+.view-story-wrapper .comments-wrapper .comment-submit-block .input .input-lower .add-to .emojis {
+  height: 100%;
+}
+.view-story-wrapper .comments-wrapper .comment-submit-block .input .input-lower .add-to .emojis i {
+  padding: 0.5em;
+  cursor: pointer;
+}
+.view-story-wrapper .comments-wrapper .comment-submit-block .input .input-lower .add-to .emojis i:hover {
+  color: steelblue;
+}
+.view-story-wrapper .comments-wrapper .comment-submit-block .submit {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.view-story-wrapper .comments-wrapper .comment-list-block {
+  width: 80%;
+  margin: auto;
+}
+.view-story-wrapper .comments-wrapper .comment-list-block .stat-bar {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5em;
+  align-items: 1.1rem;
+  border: 1px solid #f1f1f1;
+  margin-bottom: 1em;
 }
 
 .authors-wrapper {

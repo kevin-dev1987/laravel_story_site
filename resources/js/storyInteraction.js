@@ -77,6 +77,7 @@ var story_report_form = $('#story_report_form')[0]
 $(document).on('click', '.submit-story-report', function(e){
     e.preventDefault()
     var storyReportData = new FormData(story_report_form)
+    console.log(storyReportData)
     
     $.ajax({
         url: '/report_story',
@@ -87,7 +88,23 @@ $(document).on('click', '.submit-story-report', function(e){
         cache: false,
         data: storyReportData,
         success: function(response){
+            if(response.required == 'empty'){
+                $('.report-modal-errors').show()
+                $('.report-modal-errors').html('Please select a reason')
+            }
 
+            if(response.auth == 'not_auth'){
+                $('.report-modal-errors').show()
+                $('.report-modal-errors').html('You must be logged in to do this')
+            }
+
+            if(response.report == 'story_reported'){
+                $('.report-story-modal .modal-content form').hide()
+                $('.report-story-modal .modal-content > p').html('Thank you for your report!')
+                setTimeout(function() {
+                    $('.report-story-modal').hide()
+                }, 2000)
+            }
         },
         error: function(xhr, status, error){
             console.log(error)
