@@ -1,0 +1,128 @@
+.auth-block{
+    width: 80%;
+    margin: 2em auto;
+    
+
+    h2{
+        width: 100%;
+        font-size: 2rem;
+        padding-bottom: 0.5em;
+        margin-bottom: 1em;
+        border-bottom: 1px solid #666;
+        color: $link-blue;
+    }
+
+    .auth-content{
+        width: 40%;
+        margin: 0 auto;
+        border: 1px solid #666;
+        padding: 0.5em;
+        border-radius: 10px;
+
+        p{
+            text-align: left;
+            font-size: 1.1rem;
+            margin-bottom: 0.25em;
+        }
+
+
+        .auth-errors{
+            text-align: left;
+            font-weight: bold;
+            color: red;
+            display: none;
+        }
+
+        form{
+            display: flex;
+            flex-direction: column;
+            gap: 0.5em;
+
+            .form-input{
+                display: flex;
+                flex-direction: column;
+                gap: 0.25em;
+                width: 100%;
+
+                label{
+                    font-size: 1.1rem;
+                    color: $link-blue;
+                    font-weight: 100;
+                }
+
+                input[type='text'], input[type='password'], input[type='email']{
+                    padding: 0.25em 0.5em;
+                    border: 1px solid #666;
+                    font-size: 1.1rem;
+                    height: 30px;
+                    border-radius: 5px;
+                }
+
+                .password-input{
+                    position: relative;
+
+                    input{
+                        width: 100%;
+                        border-top-right-radius: 0;
+                        border-bottom-right-radius: 0;
+                    }
+
+                    .pass-show-icons{
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        gap: 0;
+                        position: absolute;
+                        right: 5px;
+                        bottom: 2px;
+                        // border: 1px solid #000;
+
+                        .bi-eye-slash-fill{
+                            display: none;
+                        }
+
+                        i{
+                            
+                            height: 100%;
+                            font-size: 1.3rem;
+                            // padding: 0 0.2em;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+
+            .form-agree{
+                display: flex;
+                justify-content: center;
+                gap: 0.5em;
+                align-items: flex-start;
+                flex-direction: row;
+                margin-top: 0.25em;
+                flex-shrink: 0;
+
+                label{
+                    width: 20px;
+                    height: 20px;
+                    max-width: 20px;
+                    max-height: 20px;
+                    border: 1px solid #000;
+                    
+                    cursor: pointer;
+                    
+                    .auth-agree-check{
+                        font-size: 1.1rem;
+                        color: green;
+                        display: none;
+                    }
+                }
+
+                p{
+                    font-size: 0.9rem;
+                }
+            }
+
+                
+        }
+    }
+}

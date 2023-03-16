@@ -5,6 +5,8 @@ import './configs'
 import './userInteraction'
 import './storyInteraction'
 import './story_comments'
+import './auth'
+
 
 
 

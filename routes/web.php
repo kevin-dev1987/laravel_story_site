@@ -7,7 +7,9 @@ use App\Http\Controllers\LikesController;
 use App\Http\Controllers\StoryController;
 use App\Http\Controllers\FollowController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\FavouriteController;
+use App\Http\Controllers\AuthenticationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,3 +51,12 @@ Route::post('/favourite_story', [FavouriteController::class, 'favouriteStory'])-
 
 //Reporting
 Route::post('/report_story', [ReportController::class, 'reportStory'])->name('report_story');
+
+//Like a comment
+Route::post('/comment_like', [CommentController::class, 'commentLike'])->name('comment_like');
+
+
+// Auth
+Route::get('/register', [AuthenticationController::class, 'showRegister'])->name('show_register')->middleware('guest');
+
+Route::post('/create_user', [AuthenticationController::class, 'createUser'])->name('create_user')->middleware('guest');

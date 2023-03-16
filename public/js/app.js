@@ -20,12 +20,73 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _storyInteraction__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_storyInteraction__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _story_comments__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./story_comments */ "./resources/js/story_comments.js");
 /* harmony import */ var _story_comments__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_story_comments__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _auth__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./auth */ "./resources/js/auth.js");
+/* harmony import */ var _auth__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_auth__WEBPACK_IMPORTED_MODULE_6__);
 
 
 
 
 
 
+
+
+/***/ }),
+
+/***/ "./resources/js/auth.js":
+/*!******************************!*\
+  !*** ./resources/js/auth.js ***!
+  \******************************/
+/***/ (() => {
+
+// Click eye to show/hide password
+$(document).on('click', '.show-password-1', function () {
+  $('#password1').attr('type', 'text');
+  $(this).hide();
+  $('.hide-password-1').show();
+});
+$(document).on('click', '.hide-password-1', function () {
+  $('#password1').attr('type', 'password');
+  $(this).hide();
+  $('.show-password-1').show();
+});
+$(document).on('click', '.show-password-2', function () {
+  $('#password2').attr('type', 'text');
+  $(this).hide();
+  $('.hide-password-2').show();
+});
+$(document).on('click', '.hide-password-2', function () {
+  $('#password2').attr('type', 'password');
+  $(this).hide();
+  $('.show-password-2').show();
+});
+$(document).on('click', '.form-agree-label', function () {
+  var checkmark = $(this).find('.auth-agree-check');
+  checkmark.toggle();
+});
+
+//Submit Register Form
+var regForm = $('#register-form')[0];
+$(document).on('click', '.reg-submit-btn', function (e) {
+  e.preventDefault();
+  var regData = new FormData(regForm);
+  $.ajax({
+    url: '/create_user',
+    method: 'POST',
+    dataType: false,
+    contentType: false,
+    processData: false,
+    cache: false,
+    data: regData,
+    success: function success(response) {
+      if (responseJson.errors) {
+        console.log('there are errors');
+      }
+    },
+    error: function error(_error) {
+      console.log(_error.responseJson.errors);
+    }
+  });
+});
 
 /***/ }),
 
@@ -231,6 +292,32 @@ $(document).on('click', '.submit-story-report', function (e) {
 $('#comments-textarea').on('keyup', function () {
   var comment_input_count = $(this).val().length;
   $('.character-count').html(comment_input_count + '/300 characters.');
+});
+
+//Like a story comment
+$(document).on('click', '.comment-like-btn', function () {
+  var comment_id = $(this).data('comment_id');
+  var commentLikeData = new FormData();
+  commentLikeData.append('comment_id', comment_id);
+  $.ajax({
+    url: '/comment_like',
+    method: 'POST',
+    context: this,
+    dataType: 'json',
+    contentType: false,
+    processData: false,
+    cache: false,
+    data: commentLikeData,
+    success: function success(response) {
+      if (response.comment_like == 'comment_liked') {
+        $(this).attr('class', 'bi bi-hand-thumbs-up-fill comment-like-btn-disabled');
+        $(this).siblings('span').html(response.like_count);
+      }
+    },
+    error: function error(xhr, status, _error) {
+      console.log(_error);
+    }
+  });
 });
 
 /***/ }),

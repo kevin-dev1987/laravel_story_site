@@ -9,7 +9,7 @@
             Log In
         </a>
         <div>|</div>
-        <a href="#">
+        <a href="{{route('show_register')}}">
             <i class="bi bi-person-fill"></i>
             Register
         </a>

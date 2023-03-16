@@ -8788,6 +8788,113 @@ footer {
 .view-story-wrapper .comments-wrapper .comment-list-block .comment-list-main .comment .comment-footer i {
   cursor: pointer;
 }
+.view-story-wrapper .comments-wrapper .comment-list-block .comment-list-main .comment .comment-footer .comment-like-btn-disabled {
+  color: navy;
+}
+
+.auth-block {
+  width: 80%;
+  margin: 2em auto;
+}
+.auth-block h2 {
+  width: 100%;
+  font-size: 2rem;
+  padding-bottom: 0.5em;
+  margin-bottom: 1em;
+  border-bottom: 1px solid #666;
+  color: steelblue;
+}
+.auth-block .auth-content {
+  width: 40%;
+  margin: 0 auto;
+  border: 1px solid #666;
+  padding: 0.5em;
+  border-radius: 10px;
+}
+.auth-block .auth-content p {
+  text-align: left;
+  font-size: 1.1rem;
+  margin-bottom: 0.25em;
+}
+.auth-block .auth-content .auth-errors {
+  text-align: left;
+  font-weight: bold;
+  color: red;
+  display: none;
+}
+.auth-block .auth-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+.auth-block .auth-content form .form-input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25em;
+  width: 100%;
+}
+.auth-block .auth-content form .form-input label {
+  font-size: 1.1rem;
+  color: steelblue;
+  font-weight: 100;
+}
+.auth-block .auth-content form .form-input input[type=text], .auth-block .auth-content form .form-input input[type=password], .auth-block .auth-content form .form-input input[type=email] {
+  padding: 0.25em 0.5em;
+  border: 1px solid #666;
+  font-size: 1.1rem;
+  height: 30px;
+  border-radius: 5px;
+}
+.auth-block .auth-content form .form-input .password-input {
+  position: relative;
+}
+.auth-block .auth-content form .form-input .password-input input {
+  width: 100%;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.auth-block .auth-content form .form-input .password-input .pass-show-icons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0;
+  position: absolute;
+  right: 5px;
+  bottom: 2px;
+}
+.auth-block .auth-content form .form-input .password-input .pass-show-icons .bi-eye-slash-fill {
+  display: none;
+}
+.auth-block .auth-content form .form-input .password-input .pass-show-icons i {
+  height: 100%;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+.auth-block .auth-content form .form-agree {
+  display: flex;
+  justify-content: center;
+  gap: 0.5em;
+  align-items: flex-start;
+  flex-direction: row;
+  margin-top: 0.25em;
+  flex-shrink: 0;
+}
+.auth-block .auth-content form .form-agree label {
+  width: 20px;
+  height: 20px;
+  max-width: 20px;
+  max-height: 20px;
+  border: 1px solid #000;
+  cursor: pointer;
+}
+.auth-block .auth-content form .form-agree label .auth-agree-check {
+  font-size: 1.1rem;
+  color: green;
+  display: none;
+}
+.auth-block .auth-content form .form-agree p {
+  font-size: 0.9rem;
+}
 
 .authors-wrapper {
   margin: 1em;

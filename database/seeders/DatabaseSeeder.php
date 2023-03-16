@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\Follow::factory(200)->create();
         \App\Models\Kudos::factory(200)->create();
         \App\Models\Comment::factory(150)->create();
+        \App\Models\CommentLike::factory(1500)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
